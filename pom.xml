@@ -10,6 +10,8 @@
     <packaging>pom</packaging>
 
     <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.checkstyle.version>2.17</maven.checkstyle.version>
     </properties>
 
@@ -18,28 +20,30 @@
     </modules>
 
     <build>
-        <plugins>
-            <!--https://github.com/checkstyle/checkstyle-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${maven.checkstyle.version}</version>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <configuration>
-                            <configLocation>${project.basedir}/checkstyle/config/google_checks.xml</configLocation>
-                            <consoleOutput>true</consoleOutput>
-                            <violationSeverity>error</violationSeverity>
-                            <excludes></excludes>
-                        </configuration>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <!--https://github.com/checkstyle/checkstyle-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>${maven.checkstyle.version}</version>
+                    <executions>
+                        <execution>
+                            <id>validate</id>
+                            <phase>validate</phase>
+                            <configuration>
+                                <configLocation>${project.basedir}/checkstyle/config/google_checks.xml</configLocation>
+                                <consoleOutput>true</consoleOutput>
+                                <violationSeverity>error</violationSeverity>
+                                <excludes></excludes>
+                            </configuration>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 </project>
