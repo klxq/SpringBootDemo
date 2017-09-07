@@ -17,6 +17,7 @@
 
     <modules>
         <module>build-java-project-with-maven</module>
+        <module>building-a-restful-web-service</module>
     </modules>
 
     <build>
