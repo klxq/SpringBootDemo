@@ -33,9 +33,8 @@
                             <phase>validate</phase>
                             <configuration>
                                 <configLocation>${project.basedir}/checkstyle/config/google_checks.xml</configLocation>
-                                <consoleOutput>true</consoleOutput>
+                                <logViolationsToConsole>true</logViolationsToConsole>
                                 <violationSeverity>error</violationSeverity>
-                                <excludes></excludes>
                             </configuration>
                             <goals>
                                 <goal>check</goal>
