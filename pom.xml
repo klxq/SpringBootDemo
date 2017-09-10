@@ -13,12 +13,36 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.checkstyle.version>2.17</maven.checkstyle.version>
+        <spring.boot.version>1.5.6.RELEASE</spring.boot.version>
     </properties>
 
     <modules>
         <module>build-java-project-with-maven</module>
         <module>building-a-restful-web-service</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- test dependencies -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <pluginManagement>
@@ -33,7 +57,7 @@
                             <id>validate</id>
                             <phase>validate</phase>
                             <configuration>
-                                <configLocation>${project.basedir}/checkstyle/config/google_checks.xml</configLocation>
+                                <!--<configLocation>${project.basedir}/checkstyle/config/google_checks.xml</configLocation>-->
                                 <logViolationsToConsole>true</logViolationsToConsole>
                                 <violationSeverity>error</violationSeverity>
                             </configuration>
@@ -42,6 +66,14 @@
                             </goals>
                         </execution>
                     </executions>
+                    <dependencies>
+                        <!-- https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle -->
+                        <dependency>
+                            <groupId>com.puppycrawl.tools</groupId>
+                            <artifactId>checkstyle</artifactId>
+                            <version>8.2</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>
