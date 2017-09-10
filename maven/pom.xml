@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>build-java-project-with-maven</artifactId>
+    <artifactId>maven</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
