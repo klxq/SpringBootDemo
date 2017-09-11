@@ -26,6 +26,7 @@
         <module>maven</module>
         <module>rest-service</module>
         <module>consuming-rest</module>
+        <module>accessing-gemfire-data-rest</module>
     </modules>
 
     <dependencyManagement>
